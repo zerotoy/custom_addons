@@ -1,0 +1,113 @@
+<odoo>
+    <data>
+
+        <record id="vehicle_model_treeview" model="ir.ui.view">
+            <field name="name">vehicle.model.treeview</field>
+            <field name="model">vehicle.model</field>
+            <field name="arch" type="xml">
+                <tree string="Model">
+                    <field name="name"/>
+                    <field name="type_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- <record id="vehicle_pricelist_formview" model="ir.ui.view">
+            <field name="name">vehicle.pricelist.formview</field>
+            <field name="model">vehicle.pricelist</field>
+            <field name="arch" type="xml">
+                <form string="Price">
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="year_id"/>
+                </form>
+            </field>
+        </record> -->
+        
+        <record id="vehicle_type_treeview" model="ir.ui.view">
+            <field name="name">vehicle.type.treeview</field>
+            <field name="model">vehicle.type</field>
+            <field name="arch" type="xml">
+                <tree string="Type">
+                    <field name="name"/>
+                    <field name="brand_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_model_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No vehicle model found. Let's create one!
+                </p>
+            </field>
+        </record>
+        <record id="vehicle_type_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No vehicle type found. Let's create one!
+                </p>
+            </field>
+        </record>
+
+        <record id="vehicle_pricelist_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Pricelist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.pricelist</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No vehicle pricelist found. Let's create one!
+                </p>
+            </field>
+        </record>
+
+        <record id="vehicle_brand_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Brand</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.brand</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No vehicle brand found. Let's create one!
+                </p>
+            </field>
+        </record>
+        
+        <record id="vehicle_year_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Year</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.year</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No vehicle year found. Let's create one!
+                </p>
+            </field>
+        </record>
+        <menuitem id="vehicle_menu" name="Vehicle"
+        parent="stock.menu_stock_root" sequence="10"/>
+
+        <menuitem id="vehicle_model_menuitem" name="Vehicle Model" action="vehicle_model_action"
+        parent="vehicle_menu" sequence="11"/>
+
+        <menuitem id="vehicle_type_menuitem" name="Vehicle Type" action="vehicle_type_action"
+        parent="vehicle_menu" sequence="13"/>
+        
+        <menuitem id="vehicle_pricelist_menuitem" name="Vehicle Pricelist" action="vehicle_pricelist_action"
+        parent="vehicle_menu" sequence="12"/>
+
+        <menuitem id="vehicle_brand_menuitem" name="Vehicle Brand" action="vehicle_brand_action"
+        parent="vehicle_menu" sequence="15"/>
+        
+        <menuitem id="vehicle_year_menuitem" name="Vehicle Year" action="vehicle_year_action"
+        parent="vehicle_menu" sequence="14"/>
+    </data>
+</odoo>

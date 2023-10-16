@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="report_vehicle_model_qweb">
+        <t t-call="web.external_layout">
+            <div class="page" style="height: 100%;">
+            <link rel="stylesheet" href="/vehicle/static/bootstrap/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="/vehicle/static/bootstrap/css/custom.css"/>
+                <div class="oe_structure"/>
+                    <div class="container-fluid">
+                    <div class="d-flex flex-column">
+                        <div class="p-2"></div>
+                        <!-- <div class="p-2 m-2 text-left" style="font-size:18pt"><span name="" class="vehicle_model" t-field="o.name"/></div> -->
+                        <div class="d-flex justify-content-start">
+                            <div class="col col-2 ">Type</div>
+                            <div class="col col-4 ">: <span name="" class="vehicle_model" t-field="o.type"/></div>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="col col-2 ">Brand</div>
+                            <div class="col col-4 ">: <span name="" class="vehicle_model" t-field="o.brand"/></div>
+                        </div>
+                        
+                        <t t-if="o.range_min>0">
+                            <div class="d-flex justify-content-start">
+                                <div class="col col-2 ">Min Price</div>
+                                <div class="col col-4 ">: <span name="" class="vehicle_model" t-field="o.range_min"/></div>
+                            </div>
+                        </t>
+                        <t t-if="o.range_max>0">
+                            <div class="d-flex justify-content-start">
+                                <div class="col col-2 ">Max Price</div>
+                                <div class="col col-4 ">: <span name="" class="vehicle_model" t-field="o.range_max"/></div>
+                            </div>
+                        </t>
+                        
+                    </div>
+                    <table class="table table-sm pb-5 table-fixed" style="font-size:10pt;">
+                    
+                    <thead class="font-weight-bold text-dark" style="background-color:#E5E4E2">
+                        <tr>
+                            <th scope="col col-4">Model</th>                            
+                            <t t-if="o.type!='All Type'">
+                                <th scope="col col-4">Type</th>
+                            </t>
+                            <t t-if="o.brand!='All Brand'">
+                                <th scope="col col-4">Brand</th>
+                            </t>
+                            <th scope="col col-4">Code</th>
+                            <th scope="col col-4">Year</th>
+                            <th scope="col col-4">Price</th>
+                        </tr>
+                    </thead>
+                    <t t-set="count" t-value="0"/>
+                    <tbody>
+                        <t t-foreach="o.line_ids" t-as="line">
+                            <t t-set="count" t-value="count + 1"/>
+                            <tr>
+                                <td id="no">
+                                    <span t-field="line.model_id"/>
+                                </td> 
+                                <t t-if="o.type!='All Type'">
+                                    <td id="code">
+                                        <span t-field="line.type_id"/>
+                                    </td>
+                                </t>
+                                <t t-if="o.brand!='All Brand'">
+                                    <td id="code">
+                                        <span t-field="line.type_id"/>
+                                    </td>
+                                </t>
+                                <td id="code">
+                                    <span t-field="line.price_list_id.name"/>
+                                </td>
+                                <td id="year">
+                                    <span t-field="line.price_list_id.year_id.name"/>
+                                </td>
+                                <td id="price">
+                                    <span t-field="line.price_list_id.price"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                    </table>
+                    </div>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+        
+    </template>
+    <template id="report_vehicle_model">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="vehicle.report_vehicle_model_qweb" t-lang="o.env.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

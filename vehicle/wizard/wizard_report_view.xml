@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+        <!-- <record id="report_vehicle_wizard_form" model="ir.ui.view">
+            <field name="name">report.vehicle.wizard.form</field>
+            <field name="model">report.vehicle.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle Report">
+                    <group>
+                        <field name="type_id"/> 
+                        <field name="brand_id"/> 
+                        <field name="year_id"/> 
+                        <field name="range_min"/> 
+                        <field name="range_max"/> 
+                    </group>
+                    <footer>
+                        <button name="action_search_appointment_m1" type="object" string="Search Appointments (M1)"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record> -->
+        <record id="report_vehicle_result_form" model="ir.ui.view">
+            <field name="name">report.vehicle.result.form</field>
+            <field name="model">report.vehicle.result</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle Report" create="0" edit="0">
+                    <group>
+                        <field name="type"/> 
+                        <field name="brand"/> 
+                        <!-- <field name="year_id"/>  -->
+                        <field name="range_min"/> 
+                        <field name="range_max"/> 
+                    </group>
+                    <notebook>
+                        <page string="Models" >
+                        <field name="line_ids"
+                        mode="tree"
+                        attrs="{'readonly': True}"
+                        >
+                        <tree string="Models" editable="0">
+                            <field name="model_id"/>
+                            <field name="year"/>
+                            <field name="price"/>
+                        </tree>
+                        </field>
+                        </page>
+                        </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="report_vehicle_wizard_form" model="ir.ui.view">
+            <field name="name">report.vehicle.wizard.form</field>
+            <field name="model">report.vehicle.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle Report">
+                    <group>
+                        <field name="type_id"/> 
+                        <field name="brand_id"/> 
+                        <!-- <field name="year_id"/>  -->
+                        <field name="range_min"/> 
+                        <field name="range_max"/> 
+                    </group>
+                    <footer>
+                        <button name="run_report" type="object" string="Confirm"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    
+        <record id="vehicle_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.vehicle.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem id="vehicle_report_wizard_menuitem" name="Vehicle Report" action="vehicle_report_wizard_action"
+        parent="vehicle_menu" sequence="15"/>
+    </data>
+</odoo>

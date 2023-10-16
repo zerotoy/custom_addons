@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vehicle_brand,access_vehicle_brand,model_vehicle_brand,,1,1,1,1
+access_vehicle_type,access_vehicle_type,model_vehicle_type,,1,1,1,1
+access_vehicle_model,access_vehicle_model,model_vehicle_model,,1,1,1,1
+access_vehicle_pricelist,access_vehicle_pricelist,model_vehicle_pricelist,,1,1,1,1
+access_vehicle_year,access_vehicle_year,model_vehicle_year,,1,1,1,1
+access_report_vehicle_wizard,access_report_vehicle_wizard,model_report_vehicle_wizard,,1,1,1,1
+access_report_vehicle_result,access_report_vehicle_result,model_report_vehicle_result,,1,1,1,1
+access_report_vehicle_result_line,access_report_vehicle_result_line,model_report_vehicle_result_line,,1,1,1,1
